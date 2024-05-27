@@ -14,4 +14,14 @@ body {
   flex-direction: column;
   justify-content: center;
   background-color: #27272a;
+  min-width: 350px;
+}
+
+.tagContainer::-webkit-scrollbar {
+  height: 3px;
+  border-radius: 20px;
+}
+.tagContainer::-webkit-scrollbar-thumb {
+  background-color: #52525b;
+  border-radius: 20px;
 }
