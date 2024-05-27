@@ -1,4 +1,4 @@
-import { Form } from "@remix-run/react";
+import { Form, Link } from "@remix-run/react";
 
 type Props = {};
 
@@ -17,7 +17,9 @@ const Header = (props: Props) => {
               className="h-[40px] w-[40px] hover:cursor-pointer "
             />
           </div>
-          <h1 className="flex text-2xl xs:px-[20px] lg:text-3xl">darun's tech blog</h1>
+          <h1 className="flex text-xl xs:px-[20px] xs:text-2xl lg:text-3xl">
+            <Link to="/"> darun's tech blog</Link>
+          </h1>
           <div className="hidden px-[20px] md:flex">
             <Form id="search-form" role="search" className="relative flex">
               <span>
@@ -44,10 +46,10 @@ const Header = (props: Props) => {
                 Blog
               </li>
               <li className="cursor-pointer rounded-md px-3 py-1 duration-500 hover:bg-[#52525B]">
-                About
+                <Link to="/about">About</Link>
               </li>
               <li className="cursor-pointer rounded-md px-3 py-1 duration-500 hover:bg-[#52525B]">
-                Tags
+                <Link to="/link">Link</Link>
               </li>
             </ul>
           </nav>
@@ -62,11 +64,13 @@ const Header = (props: Props) => {
               alt="change bgcolor"
               className="hidden h-[45px] w-[45px] cursor-pointer rounded-full bg-black p-2 duration-500 hover:bg-[#52525B] sm:block"
             />
-            <img
-              src="./github.svg"
-              alt="github"
-              className="hidden h-[45px] w-[45px] cursor-pointer rounded-full bg-black p-2 duration-500 hover:bg-[#52525B] sm:block"
-            />
+            <a href="https://github.com/">
+              <img
+                src="./github.svg"
+                alt="github"
+                className="hidden h-[45px] w-[45px] cursor-pointer rounded-full bg-black p-2 duration-500 hover:bg-[#52525B] sm:block"
+              />
+            </a>
           </div>
         </div>
       </header>

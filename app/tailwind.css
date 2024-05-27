@@ -15,8 +15,10 @@ body {
   justify-content: center;
   background-color: #27272a;
   min-width: 350px;
+  min-height: 100vh;
 }
 
+/* タグ一覧のスクロールバー */
 .tagContainer::-webkit-scrollbar {
   height: 3px;
   border-radius: 20px;
@@ -24,4 +26,16 @@ body {
 .tagContainer::-webkit-scrollbar-thumb {
   background-color: #52525b;
   border-radius: 20px;
+}
+
+/* Aboutページの画像 */
+.aboutImg {
+  clip-path: ellipse(43% 50% at 51% 50%);
+}
+
+@media screen and (max-width: 1024px) {
+  /* 幅1024px以下に適用 */
+  .aboutImg {
+    clip-path: ellipse(50% 50% at 51% 50%);
+  }
 }

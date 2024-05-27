@@ -27,7 +27,7 @@ export default function App() {
   return (
     <>
       <Header />
-      <main id="main">
+      <main id="main" className="flex grow items-center justify-center">
         <Outlet />
       </main>
       <Footer />
