@@ -24,7 +24,7 @@ const Header = (props: Props) => {
             <Form id="search-form" role="search" className="relative flex">
               <span>
                 <img
-                  src="./search.svg"
+                  src="/public/search.svg"
                   alt="searchIcon"
                   className="absolute left-[8px] top-[14px] z-10 h-[16px] w-[16px]"
                 />
@@ -43,7 +43,7 @@ const Header = (props: Props) => {
           <nav className="hidden px-[20px] lg:flex">
             <ul className="flex gap-8 py-3 text-lg">
               <li className="cursor-pointer rounded-md px-3 py-1 duration-500 hover:bg-[#52525B]">
-                Blog
+                <Link to="/">Blog</Link>
               </li>
               <li className="cursor-pointer rounded-md px-3 py-1 duration-500 hover:bg-[#52525B]">
                 <Link to="/about">About</Link>
@@ -55,7 +55,7 @@ const Header = (props: Props) => {
           </nav>
           <div className="flex gap-3 px-[20px]">
             <img
-              src="./search.svg"
+              src="/public/search.svg"
               alt="search"
               className="block h-[45px] w-[45px] cursor-pointer rounded-full bg-black p-2 duration-500 hover:bg-[#52525B] md:hidden"
             />
@@ -66,7 +66,7 @@ const Header = (props: Props) => {
             />
             <a href="https://github.com/">
               <img
-                src="./github.svg"
+                src="/public/github.svg"
                 alt="github"
                 className="hidden h-[45px] w-[45px] cursor-pointer rounded-full bg-black p-2 duration-500 hover:bg-[#52525B] sm:block"
               />

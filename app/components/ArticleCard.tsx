@@ -1,3 +1,5 @@
+import { Link } from "@remix-run/react";
+
 type Props = {};
 
 const ArticleCard = (props: Props) => {
@@ -9,7 +11,7 @@ const ArticleCard = (props: Props) => {
         </div>
         <div className="flex flex-col p-4">
           <h1 className="cursor-pointer text-center text-xl font-bold duration-500 hover:underline">
-            Remixでチュートリアル
+            <Link to={"/articles/1"}> Remixでチュートリアル</Link>
           </h1>
           <time dateTime="2024-05-27" className="pt-2 text-left text-sm text-gray-400">
             2024.05.27
