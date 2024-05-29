@@ -7,6 +7,7 @@
   padding: 0;
   margin: 0;
   color: white;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -57,6 +58,17 @@ code.hljs {
   opacity: 1;
   z-index: 10;
 }
+#page_top span {
+  font-size: 14px;
+  color: #000;
+  position: absolute;
+  top: 40px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
 
 #page_top::before {
   content: url(/public/chevron-up-solid.svg);
@@ -64,18 +76,6 @@ code.hljs {
   width: 25px;
   height: 25px;
   top: -25px;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  margin: auto;
-  text-align: center;
-}
-#page_top::after {
-  content: "PAGE TOP";
-  font-size: 14px;
-  color: #000;
-  position: absolute;
-  top: 40px;
   bottom: 0;
   right: 0;
   left: 0;

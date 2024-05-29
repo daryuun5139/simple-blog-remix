@@ -1,5 +1,5 @@
 import type { LinksFunction } from "@remix-run/node";
-import styles from "./tailwind.css";
+import styles from "./tailwind.css?url";
 import { Links, Meta, Form, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";

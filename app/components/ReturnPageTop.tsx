@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 const ReturnPageTop = () => {
   const [scroll, setScroll] = useState(0);
-  console.log(scroll);
   useEffect(() => {
     const { innerHeight: height, innerWidth: width } = window;
     if (typeof window !== "undefined") {
@@ -14,9 +13,9 @@ const ReturnPageTop = () => {
 
   return (
     <>
-      {scroll >= 500 ? (
+      {scroll >= 1000 ? (
         <a href="#header" id="page_top">
-          PAGE TOP
+          <span>PAGE TOP</span>
         </a>
       ) : null}
     </>
