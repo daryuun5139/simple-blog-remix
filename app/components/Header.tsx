@@ -1,4 +1,4 @@
-import { Form, Link } from "@remix-run/react";
+import { Form, Link, NavLink } from "@remix-run/react";
 
 type Props = {};
 
@@ -43,13 +43,19 @@ const Header = (props: Props) => {
           <nav className="hidden px-[20px] lg:flex">
             <ul className="flex gap-8 py-3 text-lg">
               <li className="cursor-pointer rounded-md px-3 py-1 duration-500 hover:bg-[#52525B]">
-                <Link to="/">Blog</Link>
+                <NavLink className={({ isActive }) => (isActive ? "active" : "")} to="/">
+                  Blog
+                </NavLink>
               </li>
               <li className="cursor-pointer rounded-md px-3 py-1 duration-500 hover:bg-[#52525B]">
-                <Link to="/about">About</Link>
+                <NavLink className={({ isActive }) => (isActive ? "active" : "")} to="/about">
+                  About
+                </NavLink>
               </li>
               <li className="cursor-pointer rounded-md px-3 py-1 duration-500 hover:bg-[#52525B]">
-                <Link to="/link">Link</Link>
+                <NavLink className={({ isActive }) => (isActive ? "active" : "")} to="/link">
+                  Link
+                </NavLink>
               </li>
             </ul>
           </nav>

@@ -1,41 +1,25 @@
 import { client } from "~/common/lib/client";
 import type { MicroCMSQueries, GetListRequest, CustomRequestInit } from "microcms-js-sdk";
-import type {
-  ArticleType,
-  ArticleType_en,
-  CategoryType,
-  PublishGroup,
-  categoryArray,
-} from "~/common/types/article";
+import type { ArticleType, CategoryType, categoryArray } from "~/common/types/article";
+import { matchSorter } from "match-sorter";
+import sortBy from "sort-by";
+import { hankakuConvert } from "~/common/lib/hankakuConvert";
 
-// ブログ、カテゴリ、公開日一覧を取得
+// article一覧、カテゴリ一覧を取得
 export const getList = async (queries?: MicroCMSQueries) => {
-  const [listData, categoryData, publishedAtData, countByCategory] = await Promise.all([
+  const [listData, categoryData, countByCategory] = await Promise.all([
     client.getList<ArticleType>({
-      customRequestInit: {
-        // cache: "no-store",
-      },
+      customRequestInit: {},
       endpoint: "blogs",
       queries,
     }),
     client.getList<CategoryType>({
-      customRequestInit: {
-        // cache: "no-store",
-      },
+      customRequestInit: {},
       endpoint: "categories",
       queries,
     }),
     client.getList<ArticleType>({
-      customRequestInit: {
-        // cache: "no-store",
-      },
-      endpoint: "blogs",
-      queries: { fields: "publishedAt", limit: 300 },
-    }),
-    client.getList<ArticleType>({
-      customRequestInit: {
-        // cache: "no-store",
-      },
+      customRequestInit: {},
       endpoint: "blogs",
       queries: { fields: "category.category", limit: 300 },
     }),
@@ -44,7 +28,6 @@ export const getList = async (queries?: MicroCMSQueries) => {
     contents: listData.contents,
     totalCount: listData.totalCount,
     categories: categoryData.contents,
-    publishAt: publishedAtData.contents,
     countByCategory: countByCategory.contents,
   };
 };
@@ -52,9 +35,7 @@ export const getList = async (queries?: MicroCMSQueries) => {
 // ブログの詳細を取得（日本語）
 export const getDetail = async (contentId: string, queries?: MicroCMSQueries) => {
   const detailData = await client.getListDetail<ArticleType>({
-    customRequestInit: {
-      // cache: "no-store",
-    },
+    customRequestInit: {},
     endpoint: "blogs",
     contentId,
     queries,
@@ -86,4 +67,22 @@ export const getDraft = async (
     queries,
   });
   return draftData;
+};
+
+// 検索文字列にマッチする記事一覧を取得
+export const getArticles = async (query?: string | null) => {
+  const { contents } = await getList();
+  if (query) {
+    const articles = contents.map((content) => {
+      const mainTitle = hankakuConvert(content.mainTitle);
+      if (mainTitle!.includes(query)) {
+        return content;
+      } else {
+        return null;
+      }
+    });
+    return articles.filter(Boolean);
+  } else {
+    return contents;
+  }
 };

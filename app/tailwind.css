@@ -47,7 +47,7 @@ code.hljs {
   color: #e5f6f6;
 }
 
-/* ページTOPに戻る */
+/* ページTOPに戻る機能 */
 #page_top {
   width: 100px;
   height: 80px;
@@ -81,4 +81,10 @@ code.hljs {
   left: 0;
   margin: auto;
   text-align: center;
+}
+
+/* Navメニューの要素がアクティブの場合のスタイル */
+#header nav a.active {
+  text-decoration: solid underline #df3701 3px;
+  text-underline-offset: 10px;
 }
