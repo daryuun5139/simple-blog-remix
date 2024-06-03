@@ -11,7 +11,7 @@ export const getList = async (queries?: MicroCMSQueries) => {
     client.getList<ArticleType>({
       customRequestInit: {},
       endpoint: "blogs",
-      queries,
+      queries: { limit: 50 },
     }),
     client.getList<CategoryType>({
       customRequestInit: {},

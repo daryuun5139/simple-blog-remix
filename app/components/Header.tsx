@@ -1,4 +1,6 @@
 import { Form, Link, NavLink } from "@remix-run/react";
+import ChangeTheme from "./ChangeTheme";
+import DropdownMenu from "./DropdownMenu";
 
 type Props = {};
 
@@ -11,11 +13,7 @@ const Header = (props: Props) => {
       >
         <div className="flex w-full items-center justify-between xl:w-[80%]">
           <div className="px-[20px] lg:hidden">
-            <img
-              src="./menu.svg"
-              alt="navMenu"
-              className="h-[40px] w-[40px] hover:cursor-pointer "
-            />
+            <DropdownMenu />
           </div>
           <h1 className="flex text-xl xs:px-[20px] xs:text-2xl lg:text-3xl">
             <Link to="/"> darun's tech blog</Link>
@@ -24,7 +22,7 @@ const Header = (props: Props) => {
             <Form id="search-form" role="search" className="relative flex">
               <span>
                 <img
-                  src="/public/search.svg"
+                  src="/icons/search.svg"
                   alt="searchIcon"
                   className="absolute left-[8px] top-[14px] z-10 h-[16px] w-[16px]"
                 />
@@ -61,18 +59,14 @@ const Header = (props: Props) => {
           </nav>
           <div className="flex gap-3 px-[20px]">
             <img
-              src="/public/search.svg"
+              src="/icons/search.svg"
               alt="search"
               className="block h-[45px] w-[45px] cursor-pointer rounded-full bg-black p-2 duration-500 hover:bg-[#52525B] md:hidden"
             />
-            <img
-              src="./blend.svg"
-              alt="change bgcolor"
-              className="hidden h-[45px] w-[45px] cursor-pointer rounded-full bg-black p-2 duration-500 hover:bg-[#52525B] sm:block"
-            />
+            <ChangeTheme />
             <a href="https://github.com/">
               <img
-                src="/public/github.svg"
+                src="/icons/github.svg"
                 alt="github"
                 className="hidden h-[45px] w-[45px] cursor-pointer rounded-full bg-black p-2 duration-500 hover:bg-[#52525B] sm:block"
               />

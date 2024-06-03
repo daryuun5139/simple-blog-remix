@@ -4,7 +4,7 @@ import { Link, useLoaderData } from "@remix-run/react";
 import ReturnPageTop from "~/components/ReturnPageTop";
 import HighlightCode from "~/common/lib/highlightcode";
 import invariant from "tiny-invariant";
-import { getDetail } from "./articles/api";
+import { getDetail } from "./_articles/api";
 import { formatDate2 } from "~/common/lib/timeFormat";
 import parse from "html-react-parser";
 
@@ -51,9 +51,11 @@ const Article = (props: Props) => {
               {parse(headingText.headingText)}
             </div>
             <ul className="flex gap-3 pt-2 text-sm">
-              <li className="cursor-pointer rounded-full bg-[#52525B] px-2 py-1 duration-500 hover:underline hover:opacity-70">
-                {category.category}
-              </li>
+              <Link to={`/${category.category}/1`}>
+                <li className="cursor-pointer rounded-full bg-[#52525B] px-2 py-1 duration-500 hover:underline hover:opacity-70">
+                  {category.category}
+                </li>
+              </Link>
             </ul>
           </div>
         </div>

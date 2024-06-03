@@ -17,16 +17,20 @@ const ArticleCard = ({ content }: Props) => {
         </div>
         <div className="flex flex-col p-4">
           <h1 className="cursor-pointer text-center text-xl font-bold duration-500 hover:underline">
-            <Link to={`/articles/${id}`}> {mainTitle}</Link>
+            <Link to={`/article/${id}`}> {mainTitle}</Link>
           </h1>
           <time dateTime="2024-05-27" className="pt-2 text-left text-sm text-gray-400">
             {formatDate2(publishedAt)}
           </time>
-          <p className="py-2 text-left text-sm text-gray-200">{parse(headingText.headingText)}</p>
+          <div className="py-2 text-left text-sm text-gray-200">
+            {parse(headingText.headingText)}
+          </div>
           <ul className="flex gap-3 pt-2 text-sm">
-            <li className="cursor-pointer rounded-full bg-[#52525B] px-2 py-1 duration-500 hover:underline hover:opacity-70">
-              {category.category}
-            </li>
+            <Link to={`/${category.category}/1`}>
+              <li className="cursor-pointer rounded-full bg-[#52525B] px-2 py-1 duration-500 hover:underline hover:opacity-70">
+                {category.category}
+              </li>
+            </Link>
           </ul>
         </div>
       </div>

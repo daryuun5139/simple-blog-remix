@@ -1,7 +1,9 @@
 import type { Config } from "tailwindcss";
+const plugin = require("tailwindcss/plugin");
 
 export default {
   content: ["./app/**/*.{js,jsx,ts,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
       screens: {
@@ -15,5 +17,14 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addVariant }: { addVariant: Function }) {
+      // here is your CSS selector - could be anything
+      // in this case it is `.theme` element
+      // with `.theme--red` class (both present)
+      addVariant("retro", ".retro &");
+      addVariant("light", ".light &");
+      addVariant("modern", ".modern &");
+    }),
+  ],
 } as Config;

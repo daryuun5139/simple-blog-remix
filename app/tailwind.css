@@ -71,7 +71,7 @@ code.hljs {
 }
 
 #page_top::before {
-  content: url(/public/chevron-up-solid.svg);
+  content: url(/icons/chevron-up-solid.svg);
   position: absolute;
   width: 25px;
   height: 25px;
@@ -87,4 +87,42 @@ code.hljs {
 #header nav a.active {
   text-decoration: solid underline #df3701 3px;
   text-underline-offset: 10px;
+}
+
+/* タグ一覧の要素がアクティブの場合のスタイル */
+#tagContainer a.active {
+  text-decoration: solid underline #df3701 3px;
+  text-underline-offset: 5px;
+}
+
+/* ページネーションのスタイル */
+.pagenation li:last-child {
+  border: 1px solid #3f3f45;
+}
+
+/* ページネーションの要素がアクティブの場合のスタイル */
+.pagenation a.active {
+  background-color: #52525b;
+}
+
+/* テーマオプションのドロップダウンメニュー開閉のスタイル */
+#themeOptions.show {
+  display: flex;
+}
+
+#themeIcon.show {
+  background-color: #52525b;
+}
+
+/* 三本線ドロップダウンメニュー開閉のスタイル */
+#navMenuItems.show {
+  translate: 280px;
+}
+
+body.show {
+  overflow: hidden;
+}
+
+#opacityWrapper.show {
+  inset: 0;
 }
